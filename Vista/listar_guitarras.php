@@ -1,6 +1,7 @@
 <?php
 include_once "../config.php";
-include_once "../modelo/carrito.php";
+include_once $ROOT . 'Modelo/carrito.php';
+// include_once $ROOT . 'Control/AbmGuitarra.php';
 
 session_start();
 

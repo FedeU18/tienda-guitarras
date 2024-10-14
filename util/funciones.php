@@ -40,5 +40,4 @@ function my_autoload($class_name)
   }
 }
 
-// Registrar mi propia función de autocarga
 spl_autoload_register('my_autoload');
