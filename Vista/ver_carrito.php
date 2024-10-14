@@ -1,18 +1,21 @@
 <?php
-include_once "../config.php";
-include_once "../modelo/carrito.php";
-
 session_start();
+include_once "../config.php";
 
-if (!isset($_SESSION['carrito'])) {
+if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
   echo "El carrito está vacío.";
 } else {
   $carrito = $_SESSION['carrito'];
-  $items = $carrito->getItems();
+
   echo "<h3>Carrito de Compras</h3>";
   echo "<ul>";
-  foreach ($items as $idGuitarra => $cantidad) {
-    echo "<li>Guitarra ID: $idGuitarra - Cantidad: $cantidad</li>";
+  foreach ($carrito as $item) {
+    echo "<li>Marca: " . $item["marca"] . ", Modelo: " . $item["modelo"] . ", Precio: $" . $item["precio"];
+    echo ' <form method="post" action="accion/eliminarItem.php" style="display:inline;">';
+    echo '<input type="hidden" name="id" value="' . $item["id"] . '">';
+    echo '<button type="submit">Eliminar</button>';
+    echo '</form>';
+    echo "</li>";
   }
   echo "</ul>";
 }
@@ -26,7 +29,7 @@ if (!isset($_SESSION['carrito'])) {
 </head>
 
 <body>
-  <br><a href="listar_guitarras.php">Volver a la lista de guitarras</a>
+  <br><a href="ver_guitarras.php">Volver a la lista de guitarras</a>
 </body>
 
 </html>
