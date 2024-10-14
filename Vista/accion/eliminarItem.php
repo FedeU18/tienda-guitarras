@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../../configuracion.php";
+include_once "../../config.php";
 
 $datos = $_POST;
 

@@ -21,13 +21,16 @@ include_once "../config.php";
     echo "<ul>";
     foreach ($carrito as $item) {
       echo "<li>Marca: " . $item["marca"] . ", Modelo: " . $item["modelo"] . ", Precio: $" . $item["precio"];
-      echo ' <form method="post" action="eliminar_carrito.php" style="display:inline;">';
+      echo ' <form method="post" action="accion/eliminar_carrito.php" style="display:inline;">';
       echo '<input type="hidden" name="id" value="' . $item["id"] . '">';
       echo '<button type="submit">Eliminar</button>';
       echo '</form>';
       echo "</li>";
     }
     echo "</ul>";
+    echo '<form method="post" action="accion/pagar.php">';
+    echo '<button type="submit">Pagar</button>';
+    echo '</form>';
   }
   ?>
   <br><a href="ver_guitarras.php">Volver a la lista de guitarras</a>
