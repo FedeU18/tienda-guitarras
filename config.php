@@ -3,7 +3,7 @@ header('Content-Type: text/html; charset=utf-8');
 header("Cache-Control: no-cache, must-revalidate ");
 
 /////////////////////////////// CONFIGURACION APP ///////////////////////////////
-$PROYECTO = 'phpspreadsheet'; // actualiza el nombre de tu proyecto
+$PROYECTO = 'tienda-guitarras'; // actualiza el nombre de tu proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";
 
 include_once($ROOT . 'util/funciones.php');
