@@ -10,6 +10,8 @@ $listaGuitarra = $objAbmGuitarra->buscar(null);
 
 if (isset($_SESSION["carrito"])) {
   $carrito = $_SESSION["carrito"];
+} else {
+  $carrito = [];
 }
 ?>
   <div>carrito: <?php echo count($carrito) ?></div>
