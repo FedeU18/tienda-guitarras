@@ -21,7 +21,7 @@ include_once "../config.php";
     echo "<ul>";
     foreach ($carrito as $item) {
       echo "<li>Marca: " . $item["marca"] . ", Modelo: " . $item["modelo"] . ", Precio: $" . $item["precio"];
-      echo ' <form method="post" action="accion/eliminar_carrito.php" style="display:inline;">';
+      echo ' <form method="post" action="accion/eliminarItem.php" style="display:inline;">';
       echo '<input type="hidden" name="id" value="' . $item["id"] . '">';
       echo '<button type="submit">Eliminar</button>';
       echo '</form>';

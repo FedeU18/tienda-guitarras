@@ -20,5 +20,5 @@ if (isset($datos["id"])) {
   }
 }
 
-header("Location: ../carrito_view.php");
+header("Location: ../ver_carrito.php");
 exit();

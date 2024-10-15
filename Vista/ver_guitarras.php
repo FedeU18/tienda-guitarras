@@ -8,6 +8,8 @@ $listaGuitarra = $objAbmGuitarra->buscar(null);
 
 if (isset($_SESSION["carrito"])) {
   $carrito = $_SESSION["carrito"];
+} else {
+  $carrito = [];
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
