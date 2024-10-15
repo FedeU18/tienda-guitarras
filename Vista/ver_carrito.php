@@ -1,17 +1,8 @@
 <?php
+$title = "Carrito de Compras";
+include_once('../Vista/Estructura/header.php');
 session_start();
 include_once "../config.php";
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-
-<head>
-  <title>Carrito de Compras</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-
-<body>
-  <?php
   if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
     echo "El carrito está vacío.";
   } else {
@@ -34,6 +25,6 @@ include_once "../config.php";
   }
   ?>
   <br><a href="ver_guitarras.php">Volver a la lista de guitarras</a>
-</body>
-
-</html>
+<?php
+include_once('../Vista/Estructura/footer.php');
+?>

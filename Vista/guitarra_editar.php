@@ -1,4 +1,6 @@
 <?php
+$title = "Ejemplo";
+include_once('../Vista/Estructura/header.php');
 include_once '../config.php';
 $objAbmGuitarra = new AbmGuitarra();
 $datos = data_submitted();
@@ -10,15 +12,6 @@ if (isset($datos['id'])) {
   }
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-
-<head>
-  <title>Ejemplo</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-
-<body>
   <h3>Guitarra</h3>
   <?php if ($obj != null) { ?>
     <form method="post" action="accion/abmGuitarra.php">
@@ -42,8 +35,8 @@ if (isset($datos['id'])) {
   <?php } else {
     echo "<p>No se encontró la clave que desea modificar</p>";
   } ?>
-  <br><br>
-  <a href="fguitarra.php">Volver</a>
-</body>
-
-</html>
+  <br>
+  <a href="Guitarra.php">Volver</a>
+<?php
+include_once('../Vista/Estructura/footer.php');
+?>

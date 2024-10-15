@@ -1,30 +1,42 @@
 <?php
+$title = "Ejemplo";
+include_once('../Vista/Estructura/header.php');
 include_once "../config.php";
 $objAbmGuitarra = new AbmGuitarra();
 $listaGuitarra = $objAbmGuitarra->buscar(null);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<head>
-  <title>Ejemplo</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-
-<body>
+<div class="container mt-4">
   <h3>ABM - Guitarra</h3>
-  <a href="guitarra_nuevo.php">nuevo</a>
-  <table border="1">
-    <?php
-    if (count($listaGuitarra) > 0) {
-      foreach ($listaGuitarra as $objGuitarra) {
-        echo '<tr><td style="width:500px;">' . $objGuitarra->getMarca() . ' ' . $objGuitarra->getModelo() . '</td>';
-        echo '<td><a href="guitarra_editar.php?id=' . $objGuitarra->getId() . '">editar</a></td>';
-        echo '<td><a href="accion/abmGuitarra.php?accion=borrar&id=' . $objGuitarra->getId() . '">borrar</a></td></tr>';
-      }
-    }
-    ?>
-  </table>
-</body>
+  <a href="guitarra_nuevo.php" class="btn btn-primary mb-3">Nuevo</a>
 
-</html>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Marca y Modelo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      if (count($listaGuitarra) > 0) {
+        foreach ($listaGuitarra as $objGuitarra) {
+          echo '<tr>';
+          echo '<td style="width:500px;">' . $objGuitarra->getMarca() . ' ' . $objGuitarra->getModelo() . '</td>';
+          echo '<td>';
+          echo '<a href="guitarra_editar.php?id=' . $objGuitarra->getId() . '" class="btn btn-warning btn-sm">Editar</a> ';
+          echo '<a href="accion/abmGuitarra.php?accion=borrar&id=' . $objGuitarra->getId() . '" class="btn btn-danger btn-sm">Borrar</a>';
+          echo '</td>';
+          echo '</tr>';
+        }
+      } else {
+        echo '<tr><td colspan="2" class="text-center">No hay guitarras registradas</td></tr>';
+      }
+      ?>
+    </tbody>
+  </table>
+</div>
+
+<?php
+include_once('../Vista/Estructura/footer.php');
+?>

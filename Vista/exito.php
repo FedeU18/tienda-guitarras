@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exito</title>
-</head>
-
-<body>
+<?php
+$title = "Exito";
+include_once('../Vista/Estructura/header.php');
+?>
   <h1>Tu compra a sido confirmada</h1>
   <div>
     <p>
@@ -16,6 +10,6 @@
     <p>Gracias por elegirnos</p>
   </div>
   <a href="./ver_guitarras.php">Volver a Inicio</a>
-</body>
-
-</html>
+<?php
+include_once('../Vista/Estructura/footer.php');
+?>

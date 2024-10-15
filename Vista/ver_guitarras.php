@@ -1,4 +1,6 @@
 <?php
+$title = "Lista de Guitarras";
+include_once('../Vista/Estructura/header.php');
 session_start();
 include_once "../config.php";
 
@@ -10,16 +12,8 @@ if (isset($_SESSION["carrito"])) {
   $carrito = $_SESSION["carrito"];
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-
-<head>
-  <title>Lista de Guitarras</title>
   <div>carrito: <?php echo count($carrito) ?></div>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 
-<body>
   <h3>Lista de Guitarras</h3>
   <a href="ver_carrito.php">Ver Carrito</a>
   <?php
@@ -41,6 +35,6 @@ if (isset($_SESSION["carrito"])) {
     echo "<p>No se encontraron guitarras.</p>";
   }
   ?>
-</body>
-
-</html>
+<?php
+include_once('../Vista/Estructura/footer.php');
+?>
