@@ -41,10 +41,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="./Guitarra.php">Lista de Guitarras</a>
-              <a class="dropdown-item" href="./exito.php">Exito Compra</a>
-              <a class="dropdown-item" href="./guitarra_editar.php">Editar Guitarra</a>
               <a class="dropdown-item" href="./guitarra_nuevo.php">Guitarra Nueva</a>
-              <a class="dropdown-item" href="./ver_carrito.php">Ver Carrito</a>
               <a class="dropdown-item" href="./ver_guitarras.php">Ver Guitarras</a>
             </div>
           </li>

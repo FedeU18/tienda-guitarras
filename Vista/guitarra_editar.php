@@ -1,5 +1,6 @@
 <?php
 $title = "Ejemplo";
+$jsFileFooter = "./Assets/validacion.js";
 include_once('../Vista/Estructura/header.php');
 include_once '../config.php';
 $objAbmGuitarra = new AbmGuitarra();
