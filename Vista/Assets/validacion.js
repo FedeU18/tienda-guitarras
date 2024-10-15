@@ -1,3 +1,10 @@
+$(document).ready(function() {
+    $("form").on("submit", function(event) {
+        if (!validarGuitarra()) {
+            event.preventDefault(); //evitar q se enveie el form si falla
+        }
+    });
+});
 
   //validacion de nueva guitarra
 function validarGuitarra() {
