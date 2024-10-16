@@ -34,8 +34,8 @@ function validarGuitarra() {
         marca.addClass("is-valid");
     }
 
-    //modelo, letras y nros
-    let regexModelo = /^[A-Za-z0-9]+$/;
+    //modelo, letras y nros y espacios
+    let regexModelo = /^[A-Za-z0-9\s]+$/;
     if (!regexModelo.test(modelo.val())) {
         modelo.addClass("is-invalid");
         valido = false;
@@ -52,9 +52,9 @@ function validarGuitarra() {
         tipo.addClass("is-valid");
     }
 
-    //precio:
-    let regexPrecio = /^\d+$/;
-    if (!regexPrecio.test(precio.val()) || parseInt(precio.val()) <= 0) {
+    //precio, nros enteros y decimales
+    let regexPrecio = /^\d+(\.\d{1,2})?$/;
+    if (!regexPrecio.test(precio.val()) || parseFloat(precio.val()) <= 0) {
         precio.addClass("is-invalid");
         valido = false;
     } else {

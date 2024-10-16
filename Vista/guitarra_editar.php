@@ -13,31 +13,62 @@ if (isset($datos['id'])) {
   }
 }
 ?>
-  <h3>Guitarra</h3>
+<div class="container mt-4">
+  <h3 class="mb-4">Editar Guitarra</h3>
   <?php if ($obj != null) { ?>
-    <form method="post" action="accion/abmGuitarra.php">
-      <label>ID</label><br />
-      <input id="id" readonly name="id" width="80" type="text" value="<?php echo $obj->getId() ?>"><br />
-      <label>Marca</label><br />
-      <input id="marca" name="marca" type="text" value="<?php echo $obj->getMarca() ?>"><br />
-      <label>Modelo</label><br />
-      <input id="modelo" name="modelo" type="text" value="<?php echo $obj->getModelo() ?>"><br />
-      <label>Tipo</label><br />
-      <input id="tipo" name="tipo" type="text" value="<?php echo $obj->getTipo() ?>"><br />
-      <label>Precio</label><br />
-      <input id="precio" name="precio" type="text" value="<?php echo $obj->getPrecio() ?>"><br />
-      <label>Stock</label><br />
-      <input id="stock" name="stock" type="text" value="<?php echo $obj->getStock() ?>"><br />
-      <label>Fecha de Ingreso</label><br />
-      <input id="fecha_ingreso" name="fecha_ingreso" type="date" value="<?php echo $obj->getFechaIngreso() ?>"><br />
+    <form method="post" action="accion/abmGuitarra.php" class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="id">ID</label>
+          <input id="id" name="id" type="text" class="form-control" readonly value="<?php echo $obj->getId() ?>">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="marca">Marca</label>
+          <input id="marca" name="marca" type="text" class="form-control" value="<?php echo $obj->getMarca() ?>" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="modelo">Modelo</label>
+          <input id="modelo" name="modelo" type="text" class="form-control" value="<?php echo $obj->getModelo() ?>" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="tipo">Tipo</label>
+          <input id="tipo" name="tipo" type="text" class="form-control" value="<?php echo $obj->getTipo() ?>" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="precio">Precio</label>
+          <input id="precio" name="precio" type="text" class="form-control" value="<?php echo $obj->getPrecio() ?>" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="stock">Stock</label>
+          <input id="stock" name="stock" type="text" class="form-control" value="<?php echo $obj->getStock() ?>" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="fecha_ingreso">Fecha de Ingreso</label>
+          <input id="fecha_ingreso" name="fecha_ingreso" type="date" class="form-control" value="<?php echo $obj->getFechaIngreso() ?>" required>
+        </div>
+      </div>
+
       <input id="accion" name="accion" value="editar" type="hidden">
-      <input type="submit">
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
     </form>
-  <?php } else {
-    echo "<p>No se encontró la clave que desea modificar</p>";
-  } ?>
+  <?php } else { ?>
+    <div class="alert alert-danger mt-4">
+      <p>No se encontró la clave que desea modificar.</p>
+    </div>
+  <?php } ?>
   <br>
-  <a href="Guitarra.php">Volver</a>
+  <a href="Guitarra.php" class="btn btn-secondary">Volver</a>
+</div>
+
 <?php
 include_once('../Vista/Estructura/footer.php');
 ?>
