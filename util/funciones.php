@@ -14,8 +14,13 @@ function data_submitted()
       }
     }
   }
+  if (!empty($_FILES)) {
+    $_AAux = array_merge($_AAux, $_FILES);
+}
   return $_AAux;
 }
+
+
 
 function verEstructura($e)
 {
