@@ -26,7 +26,7 @@ VALUES
   (
     'Fender',
     'Stratocaster',
-    'Eléctrica',
+    'Electrica',
     1200.00,
     10,
     '2024-01-15'
@@ -34,7 +34,7 @@ VALUES
   (
     'Gibson',
     'Les Paul',
-    'Eléctrica',
+    'Electrica',
     2500.00,
     5,
     '2024-02-10'
@@ -42,7 +42,7 @@ VALUES
   (
     'Ibanez',
     'RG550',
-    'Eléctrica',
+    'Electrica',
     1500.00,
     7,
     '2024-03-05'
@@ -50,7 +50,7 @@ VALUES
   (
     'Taylor',
     '314ce',
-    'Acústica',
+    'Acustica',
     1800.00,
     4,
     '2024-04-20'
@@ -58,7 +58,7 @@ VALUES
   (
     'Yamaha',
     'C40',
-    'Clásica',
+    'Clasica',
     150.00,
     20,
     '2024-05-15'
@@ -66,7 +66,7 @@ VALUES
   (
     'Martin',
     'D-28',
-    'Acústica',
+    'Acustica',
     3000.00,
     3,
     '2024-06-10'
@@ -74,7 +74,7 @@ VALUES
   (
     'PRS',
     'Custom 24',
-    'Eléctrica',
+    'Electrica',
     3500.00,
     2,
     '2024-07-25'

@@ -14,8 +14,8 @@
   if (isset($cssFile)) {
     echo '<link rel="stylesheet" href="' . $cssFile . '">';
   }
-  if (isset($jsFile)) {
-    echo '<script src="' . $jsFile . '"></script>';
+  if (isset($jsFileFooter)) {
+    echo '<script src="' . $jsFileFooter . '"></script>';
   }
   if (isset($title)) {
     echo '<title>' . $title . '</title>';
