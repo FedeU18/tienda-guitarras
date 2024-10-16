@@ -65,7 +65,7 @@ VALUES
   ),
   (
     'Martin',
-    'D-28',
+    'D28',
     'Acustica',
     3000.00,
     3,
