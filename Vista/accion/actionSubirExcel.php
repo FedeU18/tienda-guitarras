@@ -1,10 +1,11 @@
 <?php
 
 require '../../vendor/autoload.php';
-require '../../Modelo/conector/BaseDatos.php';
-include_once "../../Control/controlSubirArchivo.php"; // Incluimos la clase Archivo
-include_once "../../util/funciones.php";
-
+// require '../../Modelo/conector/BaseDatos.php';
+require '../../Control/AbmGuitarra.php'; 
+include_once "../../Control/controlSubirArchivo.php"; 
+// include_once "../../util/funciones.php";
+include_once '../../config.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
@@ -15,7 +16,7 @@ $archivoSubir = new Archivo();
 $rta = $archivoSubir->subirArchivo($datos);
 $texto = "11";
 
-// Manejar el resultado de la subida de archivo
+
 if ($rta == 0) {
     $texto = "<p>ERROR: no se cargó el archivo </p>";
 } elseif ($rta == 1) {
@@ -24,24 +25,18 @@ if ($rta == 0) {
     // Procesar el archivo Excel si es de tipo Excel
     if ($datos['miArchivo']['type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
         // Procesar el archivo Excel
+        $abmGuitarra = new AbmGuitarra(); 
         
-
-        $bd = new BaseDatos();
-
-        if (!$bd->Iniciar()) {
-            die("Error en la conexión a la base de datos: " . $bd->getError());
-        }
-
-        // Ruta completa al archivo subido
         $rutaArchivo = $archivoSubir->getDir() . $datos['miArchivo']['name'];
         echo $rutaArchivo;
+
         // Cargar el archivo Excel
         $documento = IOFactory::load($rutaArchivo);
         $hojaActual = $documento->getSheet(0); // Primera hoja
         $numeroFilas = $hojaActual->getHighestDataRow();
         $numeroLetra = Coordinate::columnIndexFromString($hojaActual->getHighestColumn());
 
-        // Insertar los datos del archivo en la base de datos
+        // Insertar los datos del archivo en la base de datos utilizando el ABM
         for ($indiceFila = 2; $indiceFila <= $numeroFilas; $indiceFila++) {
             $valorA = $hojaActual->getCell(Coordinate::stringFromColumnIndex(1) . $indiceFila)->getValue();
             $valorB = $hojaActual->getCell(Coordinate::stringFromColumnIndex(2) . $indiceFila)->getValue();
@@ -50,21 +45,22 @@ if ($rta == 0) {
             $valorE = $hojaActual->getCell(Coordinate::stringFromColumnIndex(5) . $indiceFila)->getValue();
             $valorF = $hojaActual->getCell(Coordinate::stringFromColumnIndex(6) . $indiceFila)->getValue();
 
-            $sql = "INSERT INTO guitarras (marca, modelo, tipo, precio, stock, fecha_ingreso) 
-                    VALUES (:marca, :modelo, :tipo, :precio, :stock, :fecha_ingreso)";
-            $stmt = $bd->prepare($sql);
+            // Preparar los datos para el ABM
+            $param = [
+                'id' => null, // El ID se asignará automáticamente
+                'marca' => $valorA,
+                'modelo' => $valorB,
+                'tipo' => $valorC,
+                'precio' => $valorD,
+                'stock' => $valorE,
+                'fecha_ingreso' => $valorF
+            ];
 
-            if ($stmt) {
-                $stmt->bindParam(':marca', $valorA);
-                $stmt->bindParam(':modelo', $valorB);
-                $stmt->bindParam(':tipo', $valorC);
-                $stmt->bindParam(':precio', $valorD);
-                $stmt->bindParam(':stock', $valorE);
-                $stmt->bindParam(':fecha_ingreso', $valorF);
-                $stmt->execute();
-                echo "1";
+            // Intentar insertar la guitarra utilizando el ABM
+            if ($abmGuitarra->alta($param)) {
+                echo "<p>Guitarra insertada: Marca $valorA, Modelo $valorB</p>";
             } else {
-                echo "Error en la preparación de la consulta: " . $bd->getError();
+                echo "<p>Error al insertar guitarra: Marca $valorA, Modelo $valorB</p>";
             }
         }
     } else {
@@ -77,7 +73,7 @@ if ($rta == 0) {
     $texto = "<p class='text-danger border-bottom border-danger'>ERROR: No se pudo cargar el archivo temporal.</p>";
 } elseif ($rta == -2) {
     $texto = "<p class='text-danger border-bottom border-danger'>ERROR: El archivo no es válido. Solo se aceptan archivos de texto o Excel.</p>";
-}else if ($rta == -3){
+} else if ($rta == -3) {
     $texto = "<p class='text-danger border-bottom border-danger'>ERROR: No hay archivo seleccionado.</p>";
 }
 
