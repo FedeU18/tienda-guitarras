@@ -20,6 +20,15 @@
 <li>Agregar estilos con Bootstrap</li>
 </ul>
 
+<h3>Instrucciones para utilizar las librerías</h3>
+<h5>Stripe:</h5>
+<p>Para utilizar Stripe, se deben ubicar en la ruta /Vista/ver_guitarras, agregar las guitarras que quiera al carrito, ir al carrito y pagar.</p>
+<p>Para que funcione, se debe crear un archivo .env en el archivo raíz del proyecto y escribirle la información que les daremos en el archivo .txt de la entrega del proyecto.</p>
+<h5>phpSpreadSheet:</h5>
+<p>Para utilizar phpSpreadsheet, se deben ubicar en la ruta /Vista/subirExcel.php, aquí se podrá cargar la base de datos con la información de los archivos con extención .xslx que le pasen a través de un formulario.</p>
+<p>Es necesario que las columnas coincidan con los atributos de la tabla Guitarra.</p>
+<p>Para probar, pueden utilizar los archivos que están en el proyecto, en la carpeta /Vista/Assets/Archivos/</p>
+<p>La segunda funcionalidad que agregamos está ubicada en la ruta /Vista/Guitarra.php, en esta se podrá descargar un archivo excel con todos los registros que hayan en la Base de datos, a través de el botón "Descargar info en excel".</p>
 <h3>Fuentes: </h3>
 
 <ul>
