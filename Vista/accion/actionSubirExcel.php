@@ -14,7 +14,7 @@ $datos = data_submitted();
 
 $archivoSubir = new Archivo();
 $rta = $archivoSubir->subirArchivo($datos);
-$texto = "11";
+$texto = "";
 
 
 if ($rta == 0) {
@@ -28,7 +28,7 @@ if ($rta == 0) {
         $abmGuitarra = new AbmGuitarra(); 
         
         $rutaArchivo = $archivoSubir->getDir() . $datos['miArchivo']['name'];
-        echo $rutaArchivo;
+        
 
         // Cargar el archivo Excel
         $documento = IOFactory::load($rutaArchivo);
