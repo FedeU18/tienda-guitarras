@@ -32,7 +32,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <img src="img/pancho.png" height="100px">
+        <img src="./Assets/Archivos/img/pancho.png" height="100px">
         <ul class="navbar-nav w-50 d-flex justify-between align-center">
           <!-- Dropdown -->
           <li class="ml-5 nav-item dropdown">
@@ -42,7 +42,9 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="./Guitarra.php">Lista de Guitarras</a>
               <a class="dropdown-item" href="./guitarra_nuevo.php">Guitarra Nueva</a>
-              <a class="dropdown-item" href="./ver_guitarras.php">Ver Guitarras</a>
+              <a class="dropdown-item" href="./ver_guitarras.php">Tienda de Guitarras</a>
+              <a class="dropdown-item" href="./ver_carrito.php">Ver Carrito</a>
+              <a class="dropdown-item" href="./subirExcel.php">Subir Excel</a>
             </div>
           </li>
 

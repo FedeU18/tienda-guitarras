@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subir Archivo</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
+<?php
+$title = "Subir Excel";
+include_once('../Vista/Estructura/header.php');
+?>
 <main class="text-light bg-dark d-flex align-items-center justify-content-center flex-column mt-5">
   <h2>Subir Archivo</h2>
   <form action="accion/actionSubirExcel.php" method="post" enctype="multipart/form-data">
@@ -31,5 +25,6 @@
         }
     });
 </script>
-</body>
-</html>
+<?php
+include_once('../Vista/Estructura/footer.php');
+?>

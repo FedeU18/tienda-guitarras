@@ -82,3 +82,5 @@ if ($rta == 0) {
 }
 
 echo $texto;
+?>
+<br><a href="../SubirExcel.php">Volver</a><br>
