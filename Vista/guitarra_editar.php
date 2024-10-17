@@ -1,5 +1,5 @@
 <?php
-$title = "Ejemplo";
+$title = "Editar Guitarra";
 $jsFileFooter = "./Assets/validacion.js";
 include_once('../Vista/Estructura/header.php');
 include_once '../config.php';

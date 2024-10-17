@@ -1,5 +1,5 @@
 <?php
-$title = "Ejemplo";
+$title = "Guitarras";
 include_once('../Vista/Estructura/header.php');
 include_once "../config.php";
 $objAbmGuitarra = new AbmGuitarra();
@@ -7,7 +7,7 @@ $listaGuitarra = $objAbmGuitarra->buscar(null);
 ?>
 
 <div class="container mt-4">
-  <h3>ABM - Guitarra</h3>
+  <h3>Guitarras</h3>
   <div class="d-flex flex-row w-100 justify-content-between">
     <a href="guitarra_nuevo.php" class="btn btn-primary mb-3">Nuevo</a>
     <form action="accion/descargarExcel.php" method="get">
