@@ -3,6 +3,7 @@
 include_once "../../config.php";
 include_once "../../vendor/autoload.php";
 
+//funcionan para utilizar estas 2 clases en el archivo actual
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
@@ -42,10 +43,15 @@ foreach ($guitarras as $guitarra) {
 
 
 //Headers y funciones para crear y descargar el archivo excel
-
+//Le dice al navegador q tipo de contenido esta recibiendo. en este caso el contenido es un archivo de hoja de calculo Excel XLSX
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+//Le indica al navegador como debe tratar el contenido. se especifica que el contenido es un archivo adjunto, lo q obliga al navegador
+//a iniciar una descarga en lugar de intentar mostrar el contenido en la ventana.
 header('Content-Disposition: attachment;filename="Guitarras.xlsx"');
+//Controla el almacenamiento en caché, asegura que se descargue la versión más reciente del archivo Excel y no una versión almacenada en caché
 header('Cache-Control: max-age=0');
 
+//genera el archivo excel
 $writer = IOFactory::createWriter($excel, 'Xlsx');
+//se pone para descargar el archivo excel creado.
 $writer->save('php://output');
