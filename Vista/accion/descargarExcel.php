@@ -45,8 +45,7 @@ foreach ($guitarras as $guitarra) {
 //Headers y funciones para crear y descargar el archivo excel
 //Le dice al navegador q tipo de contenido esta recibiendo. en este caso el contenido es un archivo de hoja de calculo Excel XLSX
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-//Le indica al navegador como debe tratar el contenido. se especifica que el contenido es un archivo adjunto, lo q obliga al navegador
-//a iniciar una descarga en lugar de intentar mostrar el contenido en la ventana.
+//le dice al navegador q el contenido es un archivo q debe ser descargado, tmb especifica el nombre q tendra el archivo "Guitarras.xlsx"
 header('Content-Disposition: attachment;filename="Guitarras.xlsx"');
 //Controla el almacenamiento en caché, asegura que se descargue la versión más reciente del archivo Excel y no una versión almacenada en caché
 header('Cache-Control: max-age=0');
